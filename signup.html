@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="assets/vendors/bootstrap-5.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons-1.7.2/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body>
+    <main class="rounded-3">
+        <div class="container-fluid position-absolute top-50 start-50 translate-middle">
+            <div class="container w-50">
+                <form id="signup">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mx-5 pt-5 px-5">
+                                <img class="card-img-top w-50 mx-auto d-block" src="assets/img/logo.png" alt="">
+                                <div class="card-body">
+                                    <label class="fw-lighter" for="fullName">Nome Completo</label>
+                                    <input class="form-control" type="text" name="fullName" id="fullName">
+
+                                    <label class="fw-lighter" for="income">Renda (R$)</label>
+                                    <input class="form-control" type="text" name="income" id="income">
+
+                                    <label class="fw-lighter" for="email">Email</label>
+                                    <input class="form-control" type="email" name="email" id="email">
+
+                                    <label class="fw-lighter" for="cpf">CPF</label>
+                                    <input class="form-control" maxlength="14" minlength="14" type="text" name="cpf" id="cpf">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="d-none text-danger fw-lighter" id="cpf-alert">
+                                                <i class="bi bi-exclamation-circle-fill"></i> CPF inválido!
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <label class="fw-lighter" for="rg">RG</label>
+                                    <input class="form-control" type="text" name="rg" id="rg">
+
+                                    <label class="fw-lighter" for="fullAddress">Endereço Completo</label>
+                                    <input class="form-control" type="fullAddress" name="fullAddress" id="fullAddress">
+
+                                    <label class="fw-lighter" for="password">Senha</label>
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" type="password" name="password" id="password">
+                                        <button type="button" id="show-password" class="btn btn-outline-primary"><i id="show-icon" class="bi-eye"></i></button>
+                                    </div>
+
+                                    <div class="d-flex justify-content-end mb-3">
+                                        <button class="btn btn-primary" type="submit">Cadastrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <script src="assets/vendors/bootstrap-5.1.3/js/bootstrap.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="assets/js/requests.js"></script>
+        <script src="assets/js/main.js"></script>
+        
+    </footer>
+</body>
+</html>

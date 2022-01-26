@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Express</title>
+    <link rel="stylesheet" href="assets/vendors/bootstrap-5.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons-1.7.2/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+
+
+
+    <script>
+        function getCookie(name) {
+            var cookieName = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(cookieName) == 0) return c.substring(cookieName.length, c.length);
+            }
+            return null;
+        }
+
+        if (!getCookie('authorization')) {
+            window.location.href = '/login.html';
+        }
+    </script>
+
+</head>
+
+<body>
+    <main class="rounded-3">
+        <div class="container-fluid position-fixed top-50 start-50 translate-middle">
+            <div class="card" style="background-color: whitesmoke; border-color:#4c7cf7;">
+                <img class="card-img-top w-25 mx-4" src="assets/img/logo.png" alt="">
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h3 class="fw-light">Bem vind_ à plataforma de Empréstimos mais rápida do Brasil!</h3>
+                                <span class="fw-light">Crédito simplificado é aqui na LoanExpress</span>
+                            </div>
+                            <h5 class="fw-light text-left mt-3">Escolha uma das opções abaixo:</h5>
+                            <div class="row d-flex justify-content-around">
+                                <div class="col-md-2 text-center">
+                                    <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#dataPersonModal">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h1 class="card-title"><i class="bi-person"></i></h1>
+                                                <p class="fw-light card-text">Dados Pessoais</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <a class="stretched-link" href="">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h1 class="card-title"><i class="bi-cash-stack"></i></h1>
+                                                <p class="fw-light card-text">Novo Empréstimo</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <a class="stretched-link" href="">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h1 class="card-title"><i class="bi-card-list"></i></h1>
+                                                <p class="fw-light card-text">Ver Empréstimos</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <a class="stretched-link">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h1 class="card-title"><i class="bi-box-arrow-right"></i></h1>
+                                                <p class="fw-light card-text">Sair</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="dataPersonModal" tabindex="-1" aria-labelledby="dataPersonLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dataPersonLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <script src="assets/vendors/bootstrap-5.1.3/js/bootstrap.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="assets/js/requests.js"></script>
+        <script src="assets/js/main.js"></script>
+    </footer>
+</body>
+
+</html>
