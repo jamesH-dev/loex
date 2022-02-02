@@ -9,26 +9,16 @@
     <link rel="stylesheet" href="assets/vendors/bootstrap-5.1.3/css/bootstrap.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons-1.7.2/bootstrap-icons.css">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/vendors/bootstrap-5.1.3/js/bootstrap.js"></script>
+    <script src="assets/js/main.js"></script>
+    
     <link rel="stylesheet" href="assets/css/main.css">
 
 
 
-    <script>
-        function getCookie(name) {
-            var cookieName = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(cookieName) == 0) return c.substring(cookieName.length, c.length);
-            }
-            return null;
-        }
 
-        if (!getCookie('authorization')) {
-            window.location.href = '/login.html';
-        }
-    </script>
+  
 
 </head>
 
@@ -47,27 +37,27 @@
                             <h5 class="fw-light text-left mt-3">Escolha uma das opções abaixo:</h5>
                             <div class="row d-flex justify-content-around">
                                 <div class="col-md-2 text-center">
-                                    <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#dataPersonModal">
+                                    <a href="#" id="dataPersonLink" data-bs-toggle="modal" data-bs-target="#dataPerson">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h1 class="card-title"><i class="bi-person"></i></h1>
                                                 <p class="fw-light card-text">Dados Pessoais</p>
                                             </div>
                                         </div>
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col-md-2 text-center">
-                                    <a class="stretched-link" href="">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#newLoan">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h1 class="card-title"><i class="bi-cash-stack"></i></h1>
-                                                <p class="fw-light card-text">Novo Empréstimo</p>
+                                                <p class="fw-light card-text">Solicitar Empréstimo</p>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-2 text-center">
-                                    <a class="stretched-link" href="">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#loanDetails">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h1 class="card-title"><i class="bi-card-list"></i></h1>
@@ -75,9 +65,9 @@
                                             </div>
                                         </div>
                                     </a>
-                                </div>
+                                </div> 
                                 <div class="col-md-2 text-center">
-                                    <a class="stretched-link">
+                                    <a href="#" id="exit">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h1 class="card-title"><i class="bi-box-arrow-right"></i></h1>
@@ -85,7 +75,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                </div>
+                                </div>                          
                             </div>
                         </div>
                     </div>
@@ -93,17 +83,82 @@
             </div>
         </div>
     </main>
-
     <!-- Modal -->
-    <div class="modal fade" id="dataPersonModal" tabindex="-1" aria-labelledby="dataPersonLabel" aria-hidden="true">
+    <div class="modal fade" id="dataPerson" tabindex="-1" aria-labelledby="dataPersonLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="dataPersonLabel">Modal title</h5>
+                    <h5 class="modal-title" id="dataPersonLabel"><i class="bi-person"></i> Dados Pessoais</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <label class="mt-1" for="fullName">Nome Completo</label>
+                    <input type="text" class="form-control" id="fullName" disabled>
+
+                    <label class="mt-1" for="income">Renda (R$)</label>
+                    <input type="text" class="form-control" id="income" disabled>
+
+                    <label class="mt-1" for="email">Email</label>
+                    <input type="email" class="form-control" id="email" disabled>
+
+                    <label class="mt-1" for="cpf">CPF</label>
+                    <input type="text" class="form-control" id="cpf" disabled>
+
+                    <label class="mt-1" for="rg">RG</label>
+                    <input type="text" class="form-control" id="rg" disabled>
+
+                    <label class="mt-1" for="fullAddress">Endereço Completo</label>
+                    <input type="text" class="form-control" id="fullAddress" disabled>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="newLoan" tabindex="-1" aria-labelledby="newLoanLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newLoanLabel"><i class="bi-cash-stack"></i> Solicitar Empréstimo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="newLoanForm">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="mt-1" for="fullName">Valor do Empréstimo</label>
+                                <input type="number" class="form-control" id="amount" name="amount">
+                            </div>
+                            <div class="col-6">
+                                <label class="mt-1" for="income">Quantidade de Parcelas</label>
+                                <input type="number" class="form-control" id="installments" name="installments">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label class="mt-1" for="email">Data da Primeira Parcela</label>
+                                <input type="date" class="form-control" id="firstInstallment" name="firstInstallment">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Solicitar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loanDetails" tabindex="-1" aria-labelledby="loanDetailsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loanDetailsLabel"><i class="bi-card-list"></i> Ver Empréstimos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    MODAL3
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -112,12 +167,9 @@
             </div>
         </div>
     </div>
-
     <footer>
-        <script src="assets/vendors/bootstrap-5.1.3/js/bootstrap.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="assets/js/requests.js"></script>
-        <script src="assets/js/main.js"></script>
     </footer>
 </body>
 
