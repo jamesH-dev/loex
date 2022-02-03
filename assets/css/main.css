@@ -10,3 +10,41 @@ main {
 a {
     text-decoration: none;
 }
+
+.background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.img-xs {
+    margin-top: 15%;
+    width: 50%;
+}
+
+.login-card {
+    border-radius: 5% !important;
+}
+
+.index-card {
+    border-radius: 10pt !important;
+}
+
+.blink {
+    animation: blink 1s steps(1, end) infinite;
+  }
+  
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+        100% {
+        opacity: 1;
+    }
+}

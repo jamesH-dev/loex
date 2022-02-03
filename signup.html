@@ -10,28 +10,34 @@
     
     <link rel="stylesheet" href="assets/css/main.css">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/vendors/bootstrap-5.1.3/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
 </head>
 <body>
     <main class="rounded-3">
+        <img class="background" src="assets/img/bg.jpg" alt="background">
         <div class="container-fluid position-absolute top-50 start-50 translate-middle">
             <div class="container w-50">
                 <form id="signup">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card mx-5 pt-5 px-5">
+                            <div class="card mx-5 pt-4 px-5">
                                 <img class="card-img-top w-50 mx-auto d-block" src="assets/img/logo.png" alt="">
                                 <div class="card-body">
                                     <label class="fw-lighter" for="fullName">Nome Completo</label>
                                     <input class="form-control" type="text" name="fullName" id="fullName">
 
                                     <label class="fw-lighter" for="income">Renda (R$)</label>
-                                    <input class="form-control" type="text" name="income" id="income">
+                                    <input class="form-control" onkeyup="currencyFormat(this)" type="text" name="income" id="income">
 
                                     <label class="fw-lighter" for="email">Email</label>
                                     <input class="form-control" type="email" name="email" id="email">
 
                                     <label class="fw-lighter" for="cpf">CPF</label>
-                                    <input class="form-control" maxlength="14" minlength="14" type="text" name="cpf" id="cpf">
+                                    <input class="form-control" onkeyup="cpfFormat(this)" type="text" name="cpf" id="cpf">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <span class="d-none text-danger fw-lighter" id="cpf-alert">
@@ -55,6 +61,7 @@
                                     <div class="d-flex justify-content-end mb-3">
                                         <button class="btn btn-primary" type="submit">Cadastrar</button>
                                     </div>
+                                    <span class="fw-lighter">Já possui cadastro? Faça <a href="login.html">login</a>!</span>
                                 </div>
                             </div>
                         </div>
@@ -64,10 +71,9 @@
         </div>
     </main>
     <footer>
-        <script src="assets/vendors/bootstrap-5.1.3/js/bootstrap.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="assets/js/requests.js"></script>
-        <script src="assets/js/main.js"></script>
+        
+
         
     </footer>
 </body>
